@@ -23,7 +23,7 @@ function App() {
         return false;
     }
     else if(!phone.match(phone_check)){
-        alert("Số điện thoại phải dài 10 kí tự và bắt đầu bằng 0");
+        alert("Số điện thoại phải dài hơn 10 kí tự và bắt đầu bằng 0");
         return false
     }
     return true;
