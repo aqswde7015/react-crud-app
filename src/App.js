@@ -15,8 +15,23 @@ function App() {
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [phone, setPhone] = useState('');
+  function Validate(){
+    var phone_check=/^0+\d{10}$/;// điều kiện check sđt thoại có độ dài 10 kí tự vad bắt đầu = số 0
+
+    if(name==='' || phone==='' || email==='' || address==='' ){
+        alert("Không được để trống");
+        return false;
+    }
+    else if(!phone.match(phone_check)){
+        alert("Số điện thoại phải dài 10 kí tự và bắt đầu bằng 0");
+        return false
+    }
+    return true;
+  }
   
   const saing = ()=>{
+    if(Validate()){
+    
     const temp = {
     id:post.length,
     name: name,
@@ -27,7 +42,7 @@ function App() {
   }
   const arr = [...post, temp];
   setPosts(arr);
-
+}
   }
   
 
