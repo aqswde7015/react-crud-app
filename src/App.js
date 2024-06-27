@@ -1,23 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React, { useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import EmployeeTable from './components/EmployeeTable';
+import employeesData from './data'; // Đường dẫn đến tệp data.js
+// import Popup from 'reactjs-popup';
+// import 'reactjs-popup/dist/index.css';
+import Inputform from './components/Inputform';
+
 
 function App() {
+  // Lấy dữ liệu từ data.js
+  const [post,setPosts] = useState([]);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState('');
+  
+  
+  
+  
+
+  
+  useEffect(() => {
+    
+    setPosts(employeesData);
+    
+    
+  },[]);
+  // useEffect(()=>{
+  //   setPosts(post);
+
+  // },[post])
+    
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mt-4">
+      <h1>Manage Employees</h1>
+      
+      <Inputform name={name} setName={setName} phone={phone} setPhone={setPhone} address={address} setAddress={setAddress} email= {email} setEmail= {setEmail}/>
+        
+{/*       
+        <EmployeeTable data = {post} setdata = {setPosts}/> */}
+      
+      
     </div>
   );
 }
