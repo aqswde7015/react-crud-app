@@ -53,7 +53,7 @@ function Inputform (props) {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button variant="primary" onClick={props.saing} type="submit">
         Thêm
       </Button>
     </Form>

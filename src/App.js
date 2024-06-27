@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import EmployeeTable from './components/EmployeeTable';
 import employeesData from './data'; // Đường dẫn đến tệp data.js
-// import Popup from 'reactjs-popup';
-// import 'reactjs-popup/dist/index.css';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import Inputform from './components/Inputform';
 
 
@@ -15,6 +15,22 @@ function App() {
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [phone, setPhone] = useState('');
+  
+  const saing = ()=>{
+    const temp = {
+    id:post.length,
+    name: name,
+    phone: phone,
+    email: email,
+    address: address
+
+  }
+  const arr = [...post, temp];
+  setPosts(arr);
+
+  }
+  
+
   
   
   
@@ -35,11 +51,14 @@ function App() {
   return (
     <div className="container mt-4">
       <h1>Manage Employees</h1>
-      
-      <Inputform name={name} setName={setName} phone={phone} setPhone={setPhone} address={address} setAddress={setAddress} email= {email} setEmail= {setEmail}/>
+      <Popup trigger=
+                {<button> Them </button>}>
+      <Inputform name={name} setName={setName} phone={phone} setPhone={setPhone} address={address} setAddress={setAddress} email= {email} setEmail= {setEmail} saing = {saing}/>
+                
+            </Popup>
         
-{/*       
-        <EmployeeTable data = {post} setdata = {setPosts}/> */}
+      
+        <EmployeeTable data = {post} setdata = {setPosts}/>
       
       
     </div>
