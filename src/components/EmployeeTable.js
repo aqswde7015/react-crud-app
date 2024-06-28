@@ -31,6 +31,7 @@ const EmployeeTable = (props) => {
     <table className="table">
     <thead>
       <tr>
+        <th><input type='checkbox'/></th>
         <th>Name</th>
         <th>Email</th>
         <th>Address</th>
@@ -42,10 +43,11 @@ const EmployeeTable = (props) => {
         {props.data.map((employee) => (
          
             <tr>
+            <td><input type='checkbox'></input></td>
             <td>{ employee.name}</td>
-            <td>{ employee.phone}</td>
-            <td>{ employee.address}</td>
             <td>{ employee.email}</td>
+            <td>{ employee.address}</td>
+            <td>{ employee.phone}</td>
             <td>
               <button onClick={() => handleEdit(employee.id)} className="btn btn-sm btn-primary" >
                 <FaEdit /> Edit
