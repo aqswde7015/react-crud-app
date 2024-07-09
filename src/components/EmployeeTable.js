@@ -1,60 +1,49 @@
 // src/components/EmployeeTable.js
-import React, { useEffect, useState } from 'react';
-import { FaEdit, FaTrash } from 'react-icons/fa';
+import React from 'react';
+import Deleteform from './Inputform';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
+
 
 
 
 const EmployeeTable = (props) => {
-      props.setdata(props.data);
-      const handleDelete = (id) => {
-        // Xóa nhân viên với ID tương ứng
-        const updatedEmployees = props.data.filter((employee) => employee.id !== id);
-        
-        props.setdata(updatedEmployees);
-      };
-      const handleEdit = (id)=>{
-        const temp = {
-          id:id,
-          name:"Phu",
-          phone:"01234",
-          address:"hdsjhf",
-          email:"pdscnjk"
-        }
-        props.setdata((employees)=>
-                employees.map((employee)=>
-                      employee.id === id ? temp:employee))
-      }
+      
+      
       console.log(props.data);
+      
+     
         
     return (
     
     <table className="table">
     <thead>
       <tr>
-        <th><input type='checkbox'/></th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Address</th>
-        <th>Phone</th>
-        <th>Actions</th>
+        <th>Mã phòng</th>
+        <th>Tên phòng</th>
+        <th>Số lượng phạm nhân</th>
+        <th>Thao tác</th>
       </tr>
     </thead>
       <tbody>
         {props.data.map((employee) => (
          
             <tr>
-            <td><input type='checkbox'></input></td>
-            <td>{ employee.name}</td>
-            <td>{ employee.email}</td>
-            <td>{ employee.address}</td>
-            <td>{ employee.phone}</td>
+            <td>{employee.id}</td>
+            <td>{ employee.ten}</td>
+            <td>{employee.soluong}</td>
             <td>
-              <button onClick={() => handleEdit(employee.id)} className="btn btn-sm btn-primary" >
-                <FaEdit /> Edit
+              <button className="btn btn-sm btn-primary" >
+                Sửa
               </button>
-              <button onClick={() => handleDelete(employee.id)} className="btn btn-sm btn-danger ml-2" >
-                <FaTrash /> Delete
-              </button>
+              <Popup trigger=
+                {<button className="btn btn-sm btn-danger ml-2" >
+                Xóa
+              </button>}>
+                  <Deleteform delete = {props.delete} id = {employee.id}> </Deleteform>
+                
+            </Popup>
             </td>
           </tr>
         ))}
