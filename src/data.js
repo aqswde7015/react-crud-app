@@ -1,4 +1,4 @@
-const employee = [
+const employees = [
     { id: 1, ten:"Phòng 101", soluong:20},
     { id: 2, ten:"Phòng 102", soluong:15},
     { id: 3, ten:"Phòng 103", soluong:25},
@@ -8,4 +8,4 @@ const employee = [
     
   ];
   
-  export default employee;
+  export default employees;
